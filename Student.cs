@@ -23,5 +23,14 @@ namespace Assignment11
             Age=age;
         }
 
+        void Info()
+        {
+            Console.WriteLine("");
+        }
+
+        void Transfer()
+        {
+            Console.WriteLine("");
+        }
     }
 }
