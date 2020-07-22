@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Assignment11
 {
-    class MyClass
+    public class University
     {
+       
+
+
+
+
+        
     }
 }

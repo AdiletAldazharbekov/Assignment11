@@ -2,15 +2,15 @@
 
 namespace Assignment11
 {
-    class Student
+    public class Student
     {
-        string Surname;
-        string Name;
-        string Group;
-        string Faculty;
-        int Course;
-        int Age;
-
+        private string Surname;
+        private string Name;
+        private string Group;
+        private string Faculty;
+        private int Course;
+        private int Age;
+        
         public Student(string surname, string name, string group, string faculty, int course, int age)
         {
             Surname = surname;
@@ -23,7 +23,7 @@ namespace Assignment11
             Info();
         }
 
-        void Info()
+        public void Info()
         {
             Console.WriteLine($"\tДанные стурдента\n" +
                 $"\nФамилия:\t{Surname}" +
@@ -34,9 +34,10 @@ namespace Assignment11
                 $"\nВозраст:\t{Age}");
         }
 
-        void Transfer()
+        public void Transfer(string group, string faculty)
         {
-            Console.WriteLine("");//Перевод студента в другую группу и факультет
+            Group = group;
+            Faculty = faculty;
         }
     }
 }
