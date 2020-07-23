@@ -11,6 +11,10 @@ namespace Assignment11
             student.Info();
             Console.WriteLine("");
             Console.WriteLine(student.GetFullName());
+            Console.WriteLine("");
+            student.SetFullName("Familia", "Imya");
+            student.Info();
+
         }
     }
 }

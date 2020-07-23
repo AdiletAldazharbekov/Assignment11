@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace Assignment11
 {
@@ -30,9 +29,10 @@ namespace Assignment11
             Info();
         }
 
-        public void SetFullName()
+        public void SetFullName(string surname, string name)
         {//Меняет ФИО студента, если значение пустое вывести ошибку в консоль
-
+            Surname = surname;
+            Name = name;
         }
 
         public string GetFullName ()
