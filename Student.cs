@@ -1,18 +1,25 @@
 ﻿using System;
+using System.Threading;
 
 namespace Assignment11
 {
     public class Student
     {
-        private string Surname;
-        private string Name;
-        private string Group;
-        private string Faculty;
-        private int Course;
-        private int Age;
+        public string Surname { get; private set; }
+        public string Name { get; private set; }
+        public string Group { get; private set; }
+        public string Faculty { get; private set; }
+        public int Course { get; private set; }
+        public int Age { get; private set; }
+
+
+        public Student()
+        {//Добавить пустой конструктор
+
+        }
         
         public Student(string surname, string name, string group, string faculty, int course, int age)
-        {
+        {//Добавить полный конструктор
             Surname = surname;
             Name = name;
             Group = group;
@@ -23,8 +30,18 @@ namespace Assignment11
             Info();
         }
 
+        public void SetFullName()
+        {//Меняет ФИО студента, если значение пустое вывести ошибку в консоль
+
+        }
+
+        public string GetFullName ()
+        {//Возвращает ФИО студента
+            var fullName = $"{Surname} {Name}";
+            return fullName;
+        }
         public void Info()
-        {
+        {//Показывает полную информацию о студенте
             Console.WriteLine($"\tДанные стурдента\n" +
                 $"\nФамилия:\t{Surname}" +
                 $"\nИмя:\t\t{Name}" +
@@ -35,7 +52,7 @@ namespace Assignment11
         }
 
         public void Transfer(string group, string faculty)
-        {
+        {//Переводит студента в другую группу и факультет, если значение пустое вывести ошибку в консоль
             Group = group;
             Faculty = faculty;
         }
