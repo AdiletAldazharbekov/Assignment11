@@ -8,8 +8,11 @@ namespace Assignment11
         public string Name { get; private set; }
         public string Group { get; private set; }
         public string Faculty { get; private set; }
-        public int Course { get; private set; }
-        public int Age { get; private set; }
+        public int Course { get; private set; } = 1;
+        public int Age { get; private set; } = 18;
+        private string FIO { get; set; }
+
+
 
 
         public Student()
@@ -18,13 +21,14 @@ namespace Assignment11
         }
         
         public Student(string surname, string name, string group, string faculty, int course, int age)
-        {//Добавить полный конструктор
+        {//Добавить полный конструктор     
             Surname = surname;
             Name = name;
             Group = group;
             Faculty = faculty;
             Course = course;
             Age = age;
+            FIO = $"{surname} {name}";
 
             Info();
         }
@@ -33,16 +37,17 @@ namespace Assignment11
         {//Меняет ФИО студента, если значение пустое вывести ошибку в консоль
             Surname = surname;
             Name = name;
+            FIO = $"{surname} {name}";
         }
 
         public string GetFullName ()
         {//Возвращает ФИО студента
-            var fullName = $"{Surname} {Name}";
-            return fullName;
+            return FIO;
         }
+
         public void Info()
         {//Показывает полную информацию о студенте
-            Console.WriteLine($"\tДанные стурдента\n" +
+            Console.WriteLine($"\tДанные стурдента {FIO}\n" +
                 $"\nФамилия:\t{Surname}" +
                 $"\nИмя:\t\t{Name}" +
                 $"\nГруппа:\t\t{Group}" +

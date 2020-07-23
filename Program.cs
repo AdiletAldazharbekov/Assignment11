@@ -12,9 +12,13 @@ namespace Assignment11
             Console.WriteLine("");
             Console.WriteLine(student.GetFullName());
             Console.WriteLine("");
-            student.SetFullName("Familia", "Imya");
+            student.SetFullName("", "Imya");
             student.Info();
 
+            var student2 = new Student();
+            student2.SetFullName("Ivanov", "Oleg");
+            student2.Transfer("CS2001", "Programming C#");
+            student2.Info();
         }
     }
 }
