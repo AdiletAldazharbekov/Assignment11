@@ -25,8 +25,8 @@ namespace Assignment11
 
         public static Array Registration()
         {
-            Console.WriteLine("\n\tРегистрация студента, введите следующие данные");
-            string[] fields = new string[] { "Фамилия", "Имя", "Возраст", "Факультет", "Курс", "Группа" };
+            Console.WriteLine("\n\tДля регистрации студента, введите следующие данные");
+            string[] fields = new string[] { "Фамилия", "Имя", "Отчество", "Дата рождения", "Возраст","Пол", "Факультет", "Курс", "Группа" };
             for (int i = 0; i < fields.Length; i++)
             {
                 while (true)
@@ -44,21 +44,22 @@ namespace Assignment11
             return fields;
         }
 
-        public static Array ChangeFio(string surname, string name)
+        public static Array ChangeFio(string surname, string name, string middleName)
         {
-            Console.WriteLine("\tИзменить Фамилию и Имя студента");
-            string[] fio = new string[] { surname, name };
-            string[] fio1 = new string[] { "Фамилия", "Имя" };
+            Console.WriteLine("\tИзменить Фамилию, Имя и Отчество студента\n");
+            string[] fio = new string[] { surname, name, middleName };
+            string[] fio1 = new string[] { "Фамилия", "Имя", "Отчество" };
             for (int i = 0; i < fio1.Length; i++)
             {
                 while (true)
                 {
-                    Console.WriteLine($"{fio1[i]} в базе: {fio[i]}, поменять на");
-                    Console.Write($"{fio1[i]}: ");
+                    Console.WriteLine($"{fio1[i]}: {fio[i]}");
+                    Console.Write("поменять на: ");
                     var input = Console.ReadLine();
                     if (Check(input))
                     {
                         fio1[i] = input;
+                        Console.WriteLine("");
                         break;
                     }
                 }
@@ -69,19 +70,20 @@ namespace Assignment11
 
         public static Array ChangeFacultyGroup(string faculty, string group)
         {
-            Console.WriteLine("\tИзменить Факультет и Группу студента");
+            Console.WriteLine("\tИзменить Факультет и Группу студента\n");
             string[] facultyGroup = new string[] { faculty, group };
             string[] facultyGroup1 = new string[] { "Факультет", "Группа" };
             for (int i = 0; i < facultyGroup1.Length; i++)
             {
                 while (true)
                 {
-                    Console.WriteLine($"{facultyGroup1[i]} в базе: {facultyGroup[i]}, поменять на");
-                    Console.Write($"{facultyGroup1[i]}: ");
+                    Console.WriteLine($"{facultyGroup1[i]}: {facultyGroup[i]}");
+                    Console.Write("поменять на: ");
                     var input = Console.ReadLine();
                     if (Check(input))
                     {
                         facultyGroup1[i] = input;
+                        Console.WriteLine("");
                         break;
                     }
                 }
@@ -94,7 +96,7 @@ namespace Assignment11
         {
             if (string.IsNullOrWhiteSpace(Input))
             {
-                Console.WriteLine("Ошибка ввода, попробуйте еще раз\n");
+                Console.WriteLine("Ошибка, вы ввели пустую строку\n");
                 return false;
             }
             return true;

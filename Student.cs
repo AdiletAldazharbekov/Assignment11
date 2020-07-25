@@ -5,35 +5,43 @@ namespace Assignment11
 {
     public class Student
     {
+        private string FIO { get; set; }
         public string Surname { get; private set; }
         public string Name { get; private set; }
-        public int Age { get; private set; } = 18;
+        public string MiddleName { get; private set; }
+        public string DateOfBirth { get; private set; }
+        public int Age { get; private set; }
+        public string Gender {get; private set; }
         public string Faculty { get; private set; }
-        public int Course { get; private set; } = 1;
+        public int Course { get; private set; }
         public string Group { get; private set; }
-        private string FIO { get; set; }
+       
 
 
     public Student()
         {
         }
         
-        public Student(string surname, string name, int age, string faculty, int course, string group)
+        public Student(string surname, string name, string middleName, string dateOfBirth, int age, string gender, string faculty, int course, string group)
         {
+            FIO = $"{surname} {name} {middleName}";
             Surname = surname;
             Name = name;
+            MiddleName = middleName;
+            DateOfBirth = dateOfBirth;
             Age = age;
+            Gender = gender;
             Faculty = faculty;
             Course = course;
             Group = group;
-            FIO = $"{surname} {name}";
         }
 
-        public void SetFullName(string surname, string name)
+        public void SetFullName(string surname, string name, string middleName)
         {
+            FIO = $"{surname} {name} {middleName}";
             Surname = surname;
             Name = name;
-            FIO = $"{surname} {name}";
+            MiddleName = middleName;
         }
 
         public string GetFullName ()
@@ -43,10 +51,11 @@ namespace Assignment11
 
         public void Info()
         {
-            Console.WriteLine($"\tДанные стурдента {FIO}\n" +
-                $"\nФамилия:\t{Surname}" +
-                $"\nИмя:\t\t{Name}" +
+            Console.WriteLine($"\tДанные стурдента\n" +
+                $"\nФИО:\t\t{FIO}" +
+                $"\nДата рождения:\t{DateOfBirth}" +
                 $"\nВозраст:\t{Age}" +
+                $"\nПол:\t\t{Gender}" +
                 $"\nФакультет:\t{Faculty}" +
                 $"\nКурс:\t\t{Course}" +
                 $"\nГруппа:\t\t{Group}");
