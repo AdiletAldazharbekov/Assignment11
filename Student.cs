@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Assignment11
 {
@@ -6,60 +7,55 @@ namespace Assignment11
     {
         public string Surname { get; private set; }
         public string Name { get; private set; }
-        public string Group { get; private set; }
+        public int Age { get; private set; } = 18;
         public string Faculty { get; private set; }
         public int Course { get; private set; } = 1;
-        public int Age { get; private set; } = 18;
+        public string Group { get; private set; }
         private string FIO { get; set; }
 
 
-
-
-        public Student()
-        {//Добавить пустой конструктор
-
+    public Student()
+        {
         }
         
-        public Student(string surname, string name, string group, string faculty, int course, int age)
-        {//Добавить полный конструктор     
+        public Student(string surname, string name, int age, string faculty, int course, string group)
+        {
             Surname = surname;
             Name = name;
-            Group = group;
+            Age = age;
             Faculty = faculty;
             Course = course;
-            Age = age;
+            Group = group;
             FIO = $"{surname} {name}";
-
-            Info();
         }
 
         public void SetFullName(string surname, string name)
-        {//Меняет ФИО студента, если значение пустое вывести ошибку в консоль
+        {
             Surname = surname;
             Name = name;
             FIO = $"{surname} {name}";
         }
 
         public string GetFullName ()
-        {//Возвращает ФИО студента
+        {
             return FIO;
         }
 
         public void Info()
-        {//Показывает полную информацию о студенте
+        {
             Console.WriteLine($"\tДанные стурдента {FIO}\n" +
                 $"\nФамилия:\t{Surname}" +
                 $"\nИмя:\t\t{Name}" +
-                $"\nГруппа:\t\t{Group}" +
+                $"\nВозраст:\t{Age}" +
                 $"\nФакультет:\t{Faculty}" +
                 $"\nКурс:\t\t{Course}" +
-                $"\nВозраст:\t{Age}");
+                $"\nГруппа:\t\t{Group}");
         }
 
-        public void Transfer(string group, string faculty)
-        {//Переводит студента в другую группу и факультет, если значение пустое вывести ошибку в консоль
-            Group = group;
+        public void Transfer(string faculty, string group)
+        {
             Faculty = faculty;
+            Group = group;
         }
     }
 }
