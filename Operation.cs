@@ -6,6 +6,23 @@ namespace Assignment11
 {
     static class Operation
     {
+        public static int MainOperation()
+        {
+            Console.WriteLine("Выберите операцию" +
+                "\n\t1. Просмотр данных студента" +
+                "\n\t2. Просмотр ФИО студента" +
+                "\n\t3. Поменять ФИО студента" +
+                "\n\t4. Перевод студента" +
+                "\n\tВыход любая другая клавиша");
+            
+            var input = Console.ReadLine();
+            int.TryParse(input, out int oper);
+            Console.Clear();
+            return oper;
+        }
+
+
+
         public static Array Registration()
         {
             Console.WriteLine("\n\tРегистрация студента, введите следующие данные");
@@ -77,7 +94,7 @@ namespace Assignment11
         {
             if (string.IsNullOrWhiteSpace(Input))
             {
-                Console.WriteLine("Ошибка ввода, попробуйте еще раз");
+                Console.WriteLine("Ошибка ввода, попробуйте еще раз\n");
                 return false;
             }
             return true;

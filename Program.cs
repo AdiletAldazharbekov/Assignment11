@@ -7,27 +7,41 @@ namespace Assignment11
        
         static void Main(string[] args)
         {
-            Console.WriteLine("Вас приветствует программа учета студентов\n");
+            Console.WriteLine("Вас приветствует программа учета студентов");
 
             var fields = (string[])Operation.Registration();
             Student student = new Student(fields[0], fields[1], Convert.ToInt32(fields[2]), fields[3], Convert.ToInt32(fields[4]), fields[5]);
-            Console.WriteLine("");
 
-            var fio = (string[])Operation.ChangeFio(student.Surname, student.Name);
-            student.SetFullName(fio[0], fio[1]);
+            while (true)
+            {
+                var input = Operation.MainOperation();
 
-            var facultyGroup = (string[])Operation.ChangeFacultyGroup(student.Faculty, student.Group);
-            student.Transfer(facultyGroup[0], facultyGroup[1]);
+                switch (input)
+                {
+                    case 1:
+                        student.Info();
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 2:
+                        Console.WriteLine(student.GetFullName());
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 3:
+                        var fio = (string[])Operation.ChangeFio(student.Surname, student.Name);
+                        student.SetFullName(fio[0], fio[1]);
+                        break;
+                    case 4:
+                        var facultyGroup = (string[])Operation.ChangeFacultyGroup(student.Faculty, student.Group);
+                        student.Transfer(facultyGroup[0], facultyGroup[1]);
+                        break;
+                    default:
+                        break;
+                }
+                if (input == 0) break;
+            }
 
-            student.Info();
-
-            Console.ReadKey();
-            Console.Clear();
-
-            Console.WriteLine(student.GetFullName());
-            Console.ReadKey();
         }
-        
     }
-
 }
